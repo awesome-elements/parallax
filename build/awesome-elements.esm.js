@@ -1,0 +1,1 @@
+import{p as a,b as e}from"./p-1e8a777d.js";(()=>{const e=import.meta.url,p={};return""!==e&&(p.resourcesUrl=new URL(".",e).href),a(p)})().then((a=>e([["p-1857fb53",[[1,"awesome-parallax",{perspective:[2]}],[1,"awesome-parallax-layer",{depth:[2]}]]]],a)));
