@@ -6,56 +6,65 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface AwesomeParallax {
         /**
-          * The first name
+          * Perspective of the parallax container.
          */
-        "first": string;
+        "perspective": number;
+    }
+    interface AwesomeParallaxLayer {
         /**
-          * The last name
+          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer.   The value should be less than the container's perspective value.
          */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "depth": number;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAwesomeParallaxElement extends Components.AwesomeParallax, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAwesomeParallaxElement: {
+        prototype: HTMLAwesomeParallaxElement;
+        new (): HTMLAwesomeParallaxElement;
+    };
+    interface HTMLAwesomeParallaxLayerElement extends Components.AwesomeParallaxLayer, HTMLStencilElement {
+    }
+    var HTMLAwesomeParallaxLayerElement: {
+        prototype: HTMLAwesomeParallaxLayerElement;
+        new (): HTMLAwesomeParallaxLayerElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "awesome-parallax": HTMLAwesomeParallaxElement;
+        "awesome-parallax-layer": HTMLAwesomeParallaxLayerElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface AwesomeParallax {
         /**
-          * The first name
+          * Invoke when the content is scrolled.
          */
-        "first"?: string;
+        "onContentScroll"?: (event: CustomEvent<{ scrollTop: number, scrollHeight: number }>) => void;
         /**
-          * The last name
+          * Perspective of the parallax container.
          */
-        "last"?: string;
+        "perspective"?: number;
+    }
+    interface AwesomeParallaxLayer {
         /**
-          * The middle name
+          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer.   The value should be less than the container's perspective value.
          */
-        "middle"?: string;
+        "depth"?: number;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "awesome-parallax": AwesomeParallax;
+        "awesome-parallax-layer": AwesomeParallaxLayer;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "awesome-parallax": LocalJSX.AwesomeParallax & JSXBase.HTMLAttributes<HTMLAwesomeParallaxElement>;
+            "awesome-parallax-layer": LocalJSX.AwesomeParallaxLayer & JSXBase.HTMLAttributes<HTMLAwesomeParallaxLayerElement>;
         }
     }
 }
