@@ -1,6 +1,6 @@
 # awesome-parallax-layer
 
-
+Also check [Parallax](../awesome-parallax/readme.md).
 
 <!-- Auto Generated Below -->
 
