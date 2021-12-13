@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, ComponentInterface, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { updateCSSVariable } from '../../utils/access-css-variable';
+import { updateCSSVariable } from '@awesome-elements/utils';
 
 @Component({
   tag: 'awesome-parallax',
@@ -7,7 +7,6 @@ import { updateCSSVariable } from '../../utils/access-css-variable';
   shadow: true,
 })
 export class AwesomeParallax implements ComponentInterface {
-
   @Element() hostElement: HTMLAwesomeParallaxElement;
 
   /**
@@ -23,7 +22,7 @@ export class AwesomeParallax implements ComponentInterface {
   /**
    * Invoke when the content is scrolled.
    */
-  @Event() contentScroll: EventEmitter<{ scrollTop: number, scrollHeight: number }>;
+  @Event() contentScroll: EventEmitter<{ scrollTop: number; scrollHeight: number }>;
 
   componentDidLoad() {
     this.perspectiveChanged(this.perspective);
@@ -32,10 +31,7 @@ export class AwesomeParallax implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div
-          id="main-container"
-          onScroll={this.scrollHandler}
-        >
+        <div id="main-container" onScroll={this.scrollHandler}>
           <slot></slot>
         </div>
       </Host>
@@ -48,6 +44,5 @@ export class AwesomeParallax implements ComponentInterface {
     updateCSSVariable('--parallax-scroll-height-px', target.scrollHeight.toString(), this.hostElement);
     updateCSSVariable('--parallax-view-height-px', target.clientHeight.toString(), this.hostElement);
     this.contentScroll.emit({ scrollTop: target.scrollTop, scrollHeight: target.scrollHeight });
-  }
-
+  };
 }

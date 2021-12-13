@@ -14,7 +14,7 @@ export namespace Components {
     }
     interface AwesomeParallaxLayer {
         /**
-          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer.   The value should be less than the container's perspective value.
+          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer. The value should be less than the container's perspective value.
          */
         "depth": number;
     }
@@ -42,7 +42,7 @@ declare namespace LocalJSX {
         /**
           * Invoke when the content is scrolled.
          */
-        "onContentScroll"?: (event: CustomEvent<{ scrollTop: number, scrollHeight: number }>) => void;
+        "onContentScroll"?: (event: CustomEvent<{ scrollTop: number; scrollHeight: number }>) => void;
         /**
           * Perspective of the parallax container.
          */
@@ -50,7 +50,7 @@ declare namespace LocalJSX {
     }
     interface AwesomeParallaxLayer {
         /**
-          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer.   The value should be less than the container's perspective value.
+          * Depth of the layer. 0 is the base layer, negative means farther and positive means nearer. The value should be less than the container's perspective value.
          */
         "depth"?: number;
     }
