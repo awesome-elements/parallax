@@ -6,6 +6,8 @@ To help making an awesome multi-layer parallax effect with ease.
 
 [Demo](https://awesome-elements.github.io/parallax/)
 
+[![Edit parallax](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/parallax-f3kui?fontsize=14&hidenavigation=1&theme=dark)
+
 ## Installation
 
 ### From NPM
